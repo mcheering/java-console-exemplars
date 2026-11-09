@@ -1,6 +1,8 @@
 # Java console exemplars
 
-Clone this repository, or select **Code → Download ZIP** on GitHub and extract the folder. Open a terminal in the repository folder with a Java Development Kit (JDK 8 or newer) installed.
+**[Open the two editable CodePen labs](https://mcheering.github.io/java-console-exemplars/)** to experiment with JavaScript versions in your browser. Each lab includes a prediction to test.
+
+To run the Java versions locally, clone this repository, or select **Code → Download ZIP** on GitHub and extract the folder. Open a terminal in the repository folder with a Java Development Kit (JDK 8 or newer) installed.
 
 ## Exo-Planet Colony Simulator
 

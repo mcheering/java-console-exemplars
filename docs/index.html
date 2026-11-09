@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CodePen console labs</title>
+<style>
+body {font: 1.1rem/1.55 "Atkinson Hyperlegible Next", system-ui, sans-serif; max-width: 44rem; margin: 8vh auto; padding: 0 1.5rem; background: #faf8f2; color: #182e34}
+section {border-top: 1px solid #bcc8c5; padding: 1rem 0 2rem}
+button {background: #165951; color: white; padding: .65rem 1rem; border: 0; border-radius: .3rem; font: inherit; cursor: pointer}
+</style>
+<main>
+<h1>CodePen console labs</h1>
+<p>Choose a lab. In the JavaScript editor, change a value near the top and check the result in the preview or console.</p>
+<section data-file="colony.js">
+<h2>Colony oxygen audit</h2>
+<p>Hydro-Gamma houses 310 people. Predict its status if the population drops to 200, then test your prediction.</p>
+</section>
+<section data-file="ocean.js">
+<h2>Deep ocean pressure tracker</h2>
+<p>Move VampireSquid from 900 to 999 meters, then to 1000. Which part of the high-compression rule changes at the boundary?</p>
+</section>
+</main>
+<script type="module">
+for (const section of document.querySelectorAll("section")) {
+  const title = section.querySelector("h2").textContent;
+  const prompt = section.querySelector("p").textContent;
+  try {
+    const response = await fetch(section.dataset.file);
+    if (!response.ok) throw new Error("Source unavailable");
+    const form = document.createElement("form");
+    form.action = "https://codepen.io/pen/define/";
+    form.method = "post";
+    form.target = "_blank";
+    const data = document.createElement("input");
+    data.type = "hidden";
+    data.name = "data";
+    data.value = JSON.stringify({
+      title, editors: "001", js: await response.text(),
+      html: "<h1>" + title + "</h1><p>" + prompt + "</p><pre></pre>",
+      css: "body {font: 1rem/1.6 system-ui; padding: 1rem; color: #182e34} pre {white-space: pre-wrap}"
+    });
+    const button = document.createElement("button");
+    button.textContent = "Open in CodePen";
+    form.append(data, button);
+    section.append(form);
+  } catch {
+    section.append("The example could not load. Refresh to try again.");
+  }
+}
+</script>
+</html>
