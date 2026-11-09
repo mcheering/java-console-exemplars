@@ -4,7 +4,7 @@ public class OceanicResearchStation {
     /**
      * Loads the paired records, builds the roster, and runs the analysis.
      * <p><strong>Precondition:</strong> Run in the example folder with readable, equal-length data files and nonnegative whole-number measurements.
-     * <p><strong>Postcondition:</strong> Prints the roster and one assessment per record.
+     * <p><strong>Postcondition:</strong> Prints the roster, one assessment per record, and a scenario chart.
      *
      * @param args command-line arguments (unused)
      * @throws java.io.IOException if an input file cannot be read
@@ -37,6 +37,7 @@ public class OceanicResearchStation {
 
         System.out.println("\n--- Initiating Zone Classification Check ---");
         runZoneAnalysis(tankArray);
+        printScenarioChart(tankArray);
     }
 
     /**
@@ -57,6 +58,33 @@ public class OceanicResearchStation {
             } else if (depth < 1000 || pressure < 100.0) {
                 System.out.println("[LOW COMPRESSION] " + ao.getSpecies() + " can be housed under lower compression metrics.");
             }
+        }
+    }
+
+    /**
+     * Compares each roster entry under three simulated demand factors.
+     * <p><strong>Precondition:</strong> The roster and its entries must be non-null.
+     * <p><strong>Postcondition:</strong> Prints one chart row per entry without modifying the roster.
+     *
+     * @param roster entries to compare in file order
+     */
+    private static void printScenarioChart(ArrayList<AbyssOrganism> roster) {
+        double[] factors = {0.5, 1.0, 1.5};
+        System.out.println("\n--- High-compression scenarios ---");
+        System.out.println("Columns: 0.50x | 1.00x | 1.50x");
+        System.out.println("# = requires high compression (at least 1000 meters and 100 atmospheres); . = outside that condition");
+        for (AbyssOrganism organism : roster) {
+            StringBuilder row = new StringBuilder();
+            // Each cell tests the same record under a different assumption.
+            for (double factor : factors) {
+                double value = organism.calculatePressure(factor);
+                if (organism.getCaptureDepthMeters() >= 1000 && value >= 100) {
+                    row.append("  #  ");
+                } else {
+                    row.append("  .  ");
+                }
+            }
+            System.out.println(row + "  " + organism.getSpecies());
         }
     }
 }

@@ -1,5 +1,14 @@
 # Java console exemplars
 
+## Completed project planning guides
+
+Each guide follows the class template from brainstorming through acceptance testing and reflection. The public downloads are available to every student. Google Docs access depends on Drive permissions.
+
+| Exemplar | Google Doc | Public download |
+| --- | --- | --- |
+| Exo-Planet Colony Simulator | [Open Google Doc](https://docs.google.com/document/d/1_NXbXz8sbh_JaquIXRuKqF0hOzw3HQy6C5Pxf3Vgdzo/edit) | [Download completed guide](https://raw.githubusercontent.com/mcheering/java-console-exemplars/main/colony/planning-guide.docx) |
+| Deep Ocean Abyss Migration Tracker | [Open Google Doc](https://docs.google.com/document/d/1c95VemSXfYujlenfQpwZ_Ccryvid4q9lV65i-C_d7Y0/edit) | [Download completed guide](https://raw.githubusercontent.com/mcheering/java-console-exemplars/main/ocean/planning-guide.docx) |
+
 ## Run Java in your browser
 
 1. [Open the Java workspace](https://codespaces.new/mcheering/java-console-exemplars?quickstart=1), sign in to GitHub, and create or resume your codespace.

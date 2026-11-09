@@ -59,13 +59,13 @@ public class ColonyStructure {
     /**
      * Estimates oxygen units needed at full occupancy.
      * <p><strong>Precondition:</strong> strainFactor must be at least 1.0.
-     * <p><strong>Postcondition:</strong> Returns populationCapacity * 1.2 * strainFactor without changing the object.
+     * <p><strong>Postcondition:</strong> Returns the subtype-specific estimate multiplied by strainFactor.
      *
      * @param strainFactor the atmospheric demand multiplier
      * @return the estimated demand in oxygen units
      */
     public double calculateOxygenNeed(double strainFactor) {
-        return this.populationCapacity * 1.2 * strainFactor;
+        return calculateOxygenNeed() * strainFactor;
     }
 
     /**

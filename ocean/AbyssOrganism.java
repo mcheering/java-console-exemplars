@@ -59,13 +59,13 @@ public class AbyssOrganism {
     /**
      * Estimates pressure in atmospheres for this simulation.
      * <p><strong>Precondition:</strong> salinityModifier must be positive.
-     * <p><strong>Postcondition:</strong> Returns (1.0 + (captureDepthMeters / 10.0)) * salinityModifier without changing the object.
+     * <p><strong>Postcondition:</strong> Returns the subtype-specific estimate multiplied by salinityModifier.
      *
      * @param salinityModifier the pressure multiplier for salinity
      * @return the estimated pressure in atmospheres
      */
     public double calculatePressure(double salinityModifier) {
-        return (1.0 + (this.captureDepthMeters / 10.0)) * salinityModifier;
+        return calculatePressure() * salinityModifier;
     }
 
     /**
