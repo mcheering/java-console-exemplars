@@ -11,6 +11,8 @@ const maximumOxygen = 250;
  * Estimates daily oxygen use, including the reserve for small research labs.
  * Precondition: population is a nonnegative whole number.
  * Postcondition: Returns the required oxygen units without changing the data.
+ * @param {number} population the habitat population
+ * @returns {number} Estimated oxygen units.
  */
 function oxygenNeed(population) {
   const labReserve = population <= 100 ? 3 * 15 : 0;

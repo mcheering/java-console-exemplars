@@ -6,8 +6,12 @@ public class ResearchLab extends ColonyStructure {
 
     /**
      * Constructs a ResearchLab instance.
-     * Precondition: Names must be non-null and numeric measurements nonnegative. Hazard level must be 1 through 5.
-     * Postcondition: The new object stores the supplied values.
+     * <p><strong>Precondition:</strong> Names must be non-null and numeric measurements nonnegative. Hazard level must be 1 through 5.
+     * <p><strong>Postcondition:</strong> The new object stores the supplied values.
+     *
+     * @param designation the structure name
+     * @param populationCapacity the number of people the structure can house
+     * @param hazardLevel the laboratory hazard rating from 1 to 5
      */
     public ResearchLab(String designation, int populationCapacity, int hazardLevel) {
         super(designation, populationCapacity);
@@ -16,8 +20,10 @@ public class ResearchLab extends ColonyStructure {
 
     /**
      * Estimates oxygen units needed at full occupancy.
-     * Precondition: No caller preparation is required.
-     * Postcondition: Returns super.calculateOxygenNeed() + (hazardLevel * 15.0) without changing the object.
+     * <p><strong>Precondition:</strong> No caller preparation is required.
+     * <p><strong>Postcondition:</strong> Returns super.calculateOxygenNeed() + (hazardLevel * 15.0) without changing the object.
+     *
+     * @return the estimated demand in oxygen units
      */
     @Override
     public double calculateOxygenNeed() {
@@ -26,8 +32,10 @@ public class ResearchLab extends ColonyStructure {
 
     /**
      * Formats this object for the console roster.
-     * Precondition: No caller preparation is required.
-     * Postcondition: Returns a description and leaves the object unchanged.
+     * <p><strong>Precondition:</strong> No caller preparation is required.
+     * <p><strong>Postcondition:</strong> Returns a description and leaves the object unchanged.
+     *
+     * @return the formatted roster entry
      */
     @Override
     public String toString() {

@@ -9,6 +9,8 @@ const specimens = [
  * Estimates pressure using the simulation's species adjustment.
  * Precondition: specimen has a species name and a nonnegative depth in meters.
  * Postcondition: Returns the estimated atmospheres without changing the specimen.
+ * @param {{species: string, depth: number}} specimen the observed species and its depth in meters
+ * @returns {number} Estimated pressure in atmospheres.
  */
 function pressureFor(specimen) {
   const baseline = 1 + specimen.depth / 10;

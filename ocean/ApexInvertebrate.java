@@ -5,9 +5,13 @@ public class ApexInvertebrate extends AbyssOrganism {
     private double tentacleLengthMeters;
 
     /**
-     * Constructs a ApexInvertebrate instance.
-     * Precondition: Names must be non-null and numeric measurements nonnegative.
-     * Postcondition: The new object stores the supplied values.
+     * Constructs an ApexInvertebrate instance.
+     * <p><strong>Precondition:</strong> Names must be non-null and numeric measurements nonnegative.
+     * <p><strong>Postcondition:</strong> The new object stores the supplied values.
+     *
+     * @param species the species name
+     * @param captureDepthMeters the capture depth in meters
+     * @param tentacleLengthMeters the simulated tentacle length in meters
      */
     public ApexInvertebrate(String species, int captureDepthMeters, double tentacleLengthMeters) {
         super(species, captureDepthMeters);
@@ -16,8 +20,10 @@ public class ApexInvertebrate extends AbyssOrganism {
 
     /**
      * Estimates pressure in atmospheres for this simulation.
-     * Precondition: No caller preparation is required.
-     * Postcondition: Returns super.calculatePressure() * 1.08 without changing the object.
+     * <p><strong>Precondition:</strong> No caller preparation is required.
+     * <p><strong>Postcondition:</strong> Returns super.calculatePressure() * 1.08 without changing the object.
+     *
+     * @return the estimated pressure in atmospheres
      */
     @Override
     public double calculatePressure() {
@@ -26,8 +32,10 @@ public class ApexInvertebrate extends AbyssOrganism {
 
     /**
      * Formats this object for the console roster.
-     * Precondition: No caller preparation is required.
-     * Postcondition: Returns a description and leaves the object unchanged.
+     * <p><strong>Precondition:</strong> No caller preparation is required.
+     * <p><strong>Postcondition:</strong> Returns a description and leaves the object unchanged.
+     *
+     * @return the formatted roster entry
      */
     @Override
     public String toString() {

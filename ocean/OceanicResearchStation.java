@@ -3,8 +3,13 @@ import java.util.ArrayList;
 public class OceanicResearchStation {
     /**
      * Loads the paired records, builds the roster, and runs the analysis.
-     * Precondition: Run in the example folder with readable, equal-length data files and nonnegative whole-number measurements.
-     * Postcondition: Prints the roster and one assessment per record.
+     * <p><strong>Precondition:</strong> Run in the example folder with readable, equal-length data files and nonnegative whole-number measurements.
+     * <p><strong>Postcondition:</strong> Prints the roster and one assessment per record.
+     *
+     * @param args command-line arguments (unused)
+     * @throws java.io.IOException if an input file cannot be read
+     * @throws NumberFormatException if a measurement cannot be parsed as an integer
+     * @throws IllegalArgumentException if the input files have different line counts
      */
     public static void main(String[] args) throws java.io.IOException {
         // Data Structure 1: String array pulled from file assets via mandatory methods
@@ -36,8 +41,10 @@ public class OceanicResearchStation {
 
     /**
      * Classifies each record using the simulation thresholds.
-     * Precondition: The list and its elements must be non-null.
-     * Postcondition: Prints one classification per element in list order.
+     * <p><strong>Precondition:</strong> The list and its elements must be non-null.
+     * <p><strong>Postcondition:</strong> Prints one classification per element in list order.
+     *
+     * @param list the roster to inspect in order
      */
     private static void runZoneAnalysis(ArrayList<AbyssOrganism> list) {
         for (AbyssOrganism ao : list) {
