@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -eu
+case "${1:-}" in
+  colony) main=ColonyManager ;;
+  ocean) main=OceanicResearchStation ;;
+  *) echo 'Choose an example: ./run colony or ./run ocean' >&2; exit 2 ;;
+esac
+cd "$(dirname "$0")/$1"
+javac ./*.java
+exec java "$main"
